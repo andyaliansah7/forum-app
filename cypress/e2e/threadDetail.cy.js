@@ -1,10 +1,8 @@
 /**
  * - thread detail spec
  *   - should display thread detail page correctly
- *   - should mark as liked when like button is clicked
- *   - should neutralize when like button is clicked again
  *   - should mark as disliked when dislike button is clicked
- *   - should neutralize when dislike button is clicked again
+ *   - should mark as liked when like button is clicked
  *   - should create comment when comment are provided
  */
 
@@ -38,18 +36,6 @@ describe('thread detail spec', () => {
     cy.get('button').contains(/^Post$/).should('be.visible');
   });
 
-  it('should mark as liked when like button is clicked', () => {
-    // click thread
-    cy.get('.card-title').contains('Thread-1').click();
-
-    // click button like
-    cy.get('button.btn.btn-sm.btn-outline-primary').first().click();
-
-    // verify
-    cy.get('button.btn.btn-sm.btn-primary').first().should('be.visible');
-    cy.get('button.btn.btn-sm.btn-outline-danger').first().should('be.visible');
-  });
-
   it('should mark as disliked when dislike button is clicked', () => {
     // click thread
     cy.get('.card-title').contains('Thread-1').click();
@@ -60,6 +46,18 @@ describe('thread detail spec', () => {
     // verify
     cy.get('button.btn.btn-sm.btn-outline-primary').first().should('be.visible');
     cy.get('button.btn.btn-sm.btn-danger').first().should('be.visible');
+  });
+
+  it('should mark as liked when like button is clicked', () => {
+    // click thread
+    cy.get('.card-title').contains('Thread-1').click();
+
+    // click button like
+    cy.get('button.btn.btn-sm.btn-outline-primary').first().click();
+
+    // verify
+    cy.get('button.btn.btn-sm.btn-primary').first().should('be.visible');
+    cy.get('button.btn.btn-sm.btn-outline-danger').first().should('be.visible');
   });
 
   it('should create comment when comment are provided', () => {
