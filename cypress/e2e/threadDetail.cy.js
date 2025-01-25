@@ -79,11 +79,11 @@ describe('thread detail spec', () => {
     cy.get('.card-title').contains('Thread-1').click();
 
     // click button dislike to neutralize
-    cy.get('button.btn.btn-sm.btn-danger').click();
+    cy.get('button.btn.btn-sm.btn-danger').first().click();
 
     // verify
-    cy.get('button.btn.btn-sm.btn-outline-primary').should('be.visible');
-    cy.get('button.btn.btn-sm.btn-outline-danger').should('be.visible');
+    cy.get('button.btn.btn-sm.btn-outline-primary').first().should('be.visible');
+    cy.get('button.btn.btn-sm.btn-outline-danger').first().should('be.visible');
   });
 
   it('should create comment when comment are provided', () => {
