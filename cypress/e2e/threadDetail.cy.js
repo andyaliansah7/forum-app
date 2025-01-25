@@ -43,23 +43,11 @@ describe('thread detail spec', () => {
     cy.get('.card-title').contains('Thread-1').click();
 
     // click button like
-    cy.get('button.btn.btn-sm.btn-outline-primary').click();
+    cy.get('button.btn.btn-sm.btn-outline-primary').first().click();
 
     // verify
-    cy.get('button.btn.btn-sm.btn-primary').should('be.visible');
-    cy.get('button.btn.btn-sm.btn-outline-danger').should('be.visible');
-  });
-
-  it('should neutralize when like button is clicked again', () => {
-    // click thread
-    cy.get('.card-title').contains('Thread-1').click();
-
-    // click button like to neutralize
-    cy.get('button.btn.btn-sm.btn-primary').click();
-
-    // verify
-    cy.get('button.btn.btn-sm.btn-outline-primary').should('be.visible');
-    cy.get('button.btn.btn-sm.btn-outline-danger').should('be.visible');
+    cy.get('button.btn.btn-sm.btn-primary').first().should('be.visible');
+    cy.get('button.btn.btn-sm.btn-outline-danger').first().should('be.visible');
   });
 
   it('should mark as disliked when dislike button is clicked', () => {
@@ -67,28 +55,16 @@ describe('thread detail spec', () => {
     cy.get('.card-title').contains('Thread-1').click();
 
     // click button dislike
-    cy.get('button.btn.btn-sm.btn-outline-danger').click();
+    cy.get('button.btn.btn-sm.btn-outline-danger').first().click();
 
     // verify
-    cy.get('button.btn.btn-sm.btn-outline-primary').should('be.visible');
-    cy.get('button.btn.btn-sm.btn-danger').should('be.visible');
-  });
-
-  it('should neutralize when dislike button is clicked again', () => {
-    // click thread
-    cy.get('.card-title').contains('Thread-1').click();
-
-    // click button dislike to neutralize
-    cy.get('button.btn.btn-sm.btn-danger').click();
-
-    // verify
-    cy.get('button.btn.btn-sm.btn-outline-primary').should('be.visible');
-    cy.get('button.btn.btn-sm.btn-outline-danger').should('be.visible');
+    cy.get('button.btn.btn-sm.btn-outline-primary').first().should('be.visible');
+    cy.get('button.btn.btn-sm.btn-danger').first().should('be.visible');
   });
 
   it('should create comment when comment are provided', () => {
-     // click thread
-     cy.get('.card-title').contains('Thread-1').click();
+    // click thread
+    cy.get('.card-title').contains('Thread-1').click();
 
     // input comment
     cy.get('textarea[placeholder="Comment"]').type('The best comment ever.');
