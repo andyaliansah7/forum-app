@@ -2,9 +2,7 @@
  * - thread detail spec
  *   - should display thread detail page correctly
  *   - should mark as liked when like button is clicked
- *   - should neutralize when like button is clicked again
  *   - should mark as disliked when dislike button is clicked
- *   - should neutralize when dislike button is clicked again
  *   - should create comment when comment are provided
  */
 
